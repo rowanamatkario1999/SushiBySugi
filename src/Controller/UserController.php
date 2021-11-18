@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user", name="user")
+     * @Route("/homepage", name="homepage")
      */
     public function index(): Response
     {
@@ -23,7 +23,27 @@ class UserController extends AbstractController
      */
     public function bestellingen()
     {
-        return $this->render('homepage/index.html.twig', [
+        return $this->render('bestellingen/index.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
+
+    /**
+     * @Route("/menu", name="menu")
+     */
+    public function menu()
+    {
+        return $this->render('menu/index.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
+
+    /**
+     * @Route("/vestigingen", name="vestigingen")
+     */
+    public function vestigingen()
+    {
+        return $this->render('vestigingen/index.html.twig', [
             'controller_name' => 'UserController',
         ]);
     }
