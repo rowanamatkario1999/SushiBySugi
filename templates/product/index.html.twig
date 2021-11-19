@@ -1,4 +1,7 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
 {% block body %}
     <div class="container">
         <h1 class="mt-3">Sushi</h1>
@@ -15,6 +18,10 @@
                 <tr>
                     <td>{{ product.name }}</td>
                     <td>{{ product.price }}</td>
+                    <td>
+                        <a href="{{ path('product_show', {'id': product.id}) }}">Tonen</a>
+                        <a href="{{ path('product_edit', {'id': product.id}) }}">Bewerken</a>
+                    </td>
                 </tr>
             {% else %}
                 <tr>
@@ -23,5 +30,9 @@
             {% endfor %}
             </tbody>
         </table>
+
+
+        <button class="btn btn-danger"><a href="{{ path('product_new') }}">Sushi Toevoegen</a></button>
     </div>
+
 {% endblock %}

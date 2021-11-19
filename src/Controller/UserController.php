@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\ProductRepository;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
@@ -19,11 +21,11 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/bestellingen", name="bestellingen")
+     * @Route("/bestellen", name="bestellen")
      */
-    public function bestellingen()
+    public function bestellen()
     {
-        return $this->render('bestellingen/index.html.twig', [
+        return $this->render('bestellen/index.html.twig', [
             'controller_name' => 'UserController',
         ]);
     }
@@ -31,10 +33,10 @@ class UserController extends AbstractController
     /**
      * @Route("/menu", name="menu")
      */
-    public function menu()
+    public function menu(ProductRepository $productRepository)
     {
         return $this->render('menu/index.html.twig', [
-            'controller_name' => 'UserController',
+            'products' => $productRepository->findAll(),
         ]);
     }
 
