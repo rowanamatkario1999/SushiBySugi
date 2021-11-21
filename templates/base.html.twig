@@ -43,12 +43,11 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href={{ path('vestigingen') }}>Vestigingen</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href={{ path('app_login') }}>Inloggen</a>
-                            </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 {% if app.user %}
                                     <a class="nav-link" href="{{ path('app_logout') }}">Uitloggen</a>
+                                {% else %}
+                                    <a class="nav-link" href={{ path('app_login') }}>Inloggen</a>
                                 {% endif %}
                             </li>
                         </ul>
