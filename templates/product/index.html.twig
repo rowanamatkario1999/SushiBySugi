@@ -7,12 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href={{ asset('../css/base.css') }}/>
+    <link rel="stylesheet" href={{ asset('../css/cards.css') }}/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <meta charset="UTF-8">
 {% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="containerCards">
         {% for product in products %}
         <div class="card">
             <div class="box">
@@ -21,11 +22,11 @@
                     <h3>{{ product.name }}</h3>
                     <p>{{ product.description }}</p>
                     <a href="#">€ {{ product.price }}</a>
+                    <a href="{{ path('product_new') }}">Sushi Toevoegen</a>
                 </div>
             </div>
         </div>
         {% endfor %}
-        <button class="btn btn-danger"><a href="{{ path('product_new') }}">Sushi Toevoegen</a></button>
     </div>
 
 {% endblock %}

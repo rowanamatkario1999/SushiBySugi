@@ -12,11 +12,13 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/homepage", name="homepage")
+     * @param $productRepository
+     * @return Response
      */
-    public function index(): Response
+    public function index(ProductRepository $productRepository): Response
     {
         return $this->render('homepage/index.html.twig', [
-            'controller_name' => 'UserController',
+            'products' => $productRepository->findAll(),
         ]);
     }
 
