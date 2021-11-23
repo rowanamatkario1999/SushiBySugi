@@ -3,13 +3,22 @@
     height: auto;
 }
 
-.nav-link{
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-}
 .jumbotron{
-    background-color: #00b3ee;
-    height: 20rem;
+    background-color: #4e555b;
+    padding: 2em 0;
+    background-image: url("../image/logo2.png");
+}
+.navbar-nav{
+    gap: 1rem;
+}
+
+.nav-link:hover{
+    color: #1b1e21;
+    text-decoration: underline;
+}
+
+footer{
+    margin-top: 200px;
 }
 
 
