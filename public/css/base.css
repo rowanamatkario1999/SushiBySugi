@@ -4,9 +4,20 @@
 }
 
 .jumbotron{
-    background-color: #4e555b;
+    height: 17rem;
     padding: 2em 0;
-    background-image: url("../image/logo2.png");
+    background-position: center;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.blackOverlay{
+    background-color: black;
+    z-index: 5;
+    opacity: 0.6;
+    position: absolute;
+    width: 100vw;
+    height: 17rem;
 }
 .navbar-nav{
     gap: 1rem;
