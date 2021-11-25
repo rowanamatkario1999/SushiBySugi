@@ -6,6 +6,7 @@ use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
@@ -35,10 +36,12 @@ class UserController extends AbstractController
     /**
      * @Route("/menu", name="menu")
      */
-    public function menu(ProductRepository $productRepository)
+    public function menu(CategoryRepository $categoryRepositoryRepository)
     {
         return $this->render('menu/index.html.twig', [
-            'products' => $productRepository->findAll(),
+            'categories' => $categoryRepositoryRepository->findBy([
+                'kindProduct' => 'Nigiri'
+            ]),
         ]);
     }
 

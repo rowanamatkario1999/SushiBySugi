@@ -3,22 +3,75 @@
     <div class="container w-50">
         <h1 class="mt-3 text-center mb-4">Menulijst</h1>
 
+        <h3>Inside Out Rolls</h3>
         <table class="table">
             <thead>
             <tr>
                 <th>Naam</th>
                 <th>Prijs</th>
-                <th></th>
                 <th>Beschrijving</th>
+                <th>Category</th>
             </tr>
             </thead>
             <tbody>
-            {% for product in products %}
+            {% for category in categories %}
+                    <tr>
+                    <td>- {{ category.category.name }}</td>
+                    <td>€ {{ category.category.price }}</td>
+                    <td>{{ category.category.description }}</td>
+                        <td>{{ category.kindProduct }}</td>
+                </tr>
+            {% else %}
                 <tr>
-                    <td>- {{ product.name }}</td>
-                    <td>€ {{ product.price }}</td>
-                    <td></td>
-                    <td>{{ product.description }}</td>
+                    <td colspan="4">Geen resultaten gevonden</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h3 class="mt-5">Nigiri</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Prijs</th>
+                <th>Beschrijving</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>- {{ category.category.name }}</td>
+                    <td>€ {{ category.category.price }}</td>
+                    <td>{{ category.category.description }}</td>
+                    <td>{{ category.kindProduct }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Geen resultaten gevonden</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h3 class="mt-5">Warme gerechten</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Prijs</th>
+                <th>Beschrijving</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>- {{ category.category.name }}</td>
+                    <td>€ {{ category.category.price }}</td>
+                    <td>{{ category.category.description }}</td>
+                    <td>{{ category.kindProduct }}</td>
                 </tr>
             {% else %}
                 <tr>
