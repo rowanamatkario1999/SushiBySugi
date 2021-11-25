@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use SebastianBergmann\CodeCoverage\Report\Text;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,6 +25,11 @@ class ProductType extends AbstractType
             ])
             ->add('description', TextareaType::class,[
                 'label' => 'Beschrijving :'
+            ])
+            ->add('categoryId', EntityType::class,[
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'label' => 'Categorie :'
             ])
         ;
     }

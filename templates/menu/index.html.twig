@@ -2,7 +2,6 @@
 {% block body %}
     <div class="container w-50">
         <h1 class="mt-3 text-center mb-4">Menulijst</h1>
-
         <h3>Inside Out Rolls</h3>
         <table class="table">
             <thead>
@@ -14,13 +13,16 @@
             </tr>
             </thead>
             <tbody>
-            {% for category in categories %}
+            {% for product in products %}
+                {% if product.categoryId.name == 'Inside Out Roll' %}
                     <tr>
-                    <td>- {{ category.category.name }}</td>
-                    <td>€ {{ category.category.price }}</td>
-                    <td>{{ category.category.description }}</td>
-                        <td>{{ category.kindProduct }}</td>
-                </tr>
+                        <td>- {{ product.name }}</td>
+                        <td>€ {{ product.price }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.categoryId.name }}</td>
+                    </tr>
+                {% else %}
+                {% endif %}
             {% else %}
                 <tr>
                     <td colspan="4">Geen resultaten gevonden</td>
@@ -40,13 +42,16 @@
             </tr>
             </thead>
             <tbody>
-            {% for category in categories %}
-                <tr>
-                    <td>- {{ category.category.name }}</td>
-                    <td>€ {{ category.category.price }}</td>
-                    <td>{{ category.category.description }}</td>
-                    <td>{{ category.kindProduct }}</td>
-                </tr>
+            {% for product in products %}
+                {% if product.categoryId.name == 'Nigiri' %}
+                    <tr>
+                        <td>- {{ product.name }}</td>
+                        <td>€ {{ product.price }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.categoryId.name }}</td>
+                    </tr>
+                {% else %}
+                {% endif %}
             {% else %}
                 <tr>
                     <td colspan="4">Geen resultaten gevonden</td>
@@ -55,7 +60,7 @@
             </tbody>
         </table>
 
-        <h3 class="mt-5">Warme gerechten</h3>
+        <h3 class="mt-5">Maki</h3>
         <table class="table">
             <thead>
             <tr>
@@ -66,13 +71,45 @@
             </tr>
             </thead>
             <tbody>
-            {% for category in categories %}
+            {% for product in products %}
+                {% if product.categoryId.name == 'Maki' %}
+                    <tr>
+                        <td>- {{ product.name }}</td>
+                        <td>€ {{ product.price }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.categoryId.name }}</td>
+                    </tr>
+                {% else %}
+                {% endif %}
+            {% else %}
                 <tr>
-                    <td>- {{ category.category.name }}</td>
-                    <td>€ {{ category.category.price }}</td>
-                    <td>{{ category.category.description }}</td>
-                    <td>{{ category.kindProduct }}</td>
+                    <td colspan="4">Geen resultaten gevonden</td>
                 </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h3 class="mt-5">Warme Gerechten</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Prijs</th>
+                <th>Beschrijving</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                {% if product.categoryId.name == 'Warme Gerechten' %}
+                    <tr class="w-25">
+                        <td>- {{ product.name }}</td>
+                        <td>€ {{ product.price }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.categoryId.name }}</td>
+                    </tr>
+                {% else %}
+                {% endif %}
             {% else %}
                 <tr>
                     <td colspan="4">Geen resultaten gevonden</td>

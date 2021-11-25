@@ -35,14 +35,13 @@ class Product
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="category", orphanRemoval=true)
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="product")
      */
-    private $category;
+    private $categoryId;
 
-    public function __construct()
-    {
-        $this->category = new ArrayCollection();
-    }
+    /**
+     * @ORM\JoinColumn(nullable=false)
+     */
 
     public function getId(): ?int
     {
@@ -85,33 +84,16 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategory(): Collection
+    public function getCategoryId(): ?Category
     {
-        return $this->category;
+        return $this->categoryId;
     }
 
-    public function addCategory(Category $category): self
+    public function setCategoryId(?Category $categoryId): self
     {
-        if (!$this->category->contains($category)) {
-            $this->category[] = $category;
-            $category->setCategory($this);
-        }
+        $this->categoryId = $categoryId;
 
         return $this;
     }
 
-    public function removeCategory(Category $category): self
-    {
-        if ($this->category->removeElement($category)) {
-            // set the owning side to null (unless already changed)
-            if ($category->getCategory() === $this) {
-                $category->setCategory(null);
-            }
-        }
-
-        return $this;
-    }
 }
