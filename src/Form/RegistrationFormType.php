@@ -20,7 +20,16 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', \Symfony\Component\Form\Extension\Core\Type\TextType::class,[
-                'label' => 'Email :'
+                'label' => 'Email:'
+            ])
+            ->add('name', \Symfony\Component\Form\Extension\Core\Type\TextType::class,[
+                'label' => 'Naam:'
+            ])
+            ->add('lastName', \Symfony\Component\Form\Extension\Core\Type\TextType::class,[
+                'label' => 'Achternaam:'
+            ])
+            ->add('age', \Symfony\Component\Form\Extension\Core\Type\TextType::class,[
+                'label' => 'Leeftijd:'
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,

@@ -17,16 +17,15 @@
                 <h1 class="h3 mb-3 font-weight-normal">Registeren</h1>
                 {{ form_row(registrationForm.email) }}
                 {{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
+                    label: 'Wachtwoord:'
                 }) }}
-
+                {{ form_end(registrationForm) }}
                 <input type="hidden" name="_csrf_token"
                        value="{{ csrf_token('authenticate') }}"
                 >
                 <button type="submit">
                     Registeren
                 </button>
-                {{ form_end(registrationForm) }}
             </div>
         </div>
 
