@@ -33,4 +33,34 @@ footer{
     margin-top: 200px;
 }
 
+a{
+    flex-direction: row;
+}
 
+.adminContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttonContainer{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.testbtn {
+    width: auto;
+
+}
+
+.delete-btn {
+    width: auto;
+}
+
+.last-head{
+    display: flex;
+    justify-content: center;
+    margin-left: -7.5vw;
+}
